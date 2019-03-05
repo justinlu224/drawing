@@ -18,6 +18,7 @@ class drawingTableViewController: UITableViewController  {
                 draws.append(text)
                 let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
                 draws.append(rr)
+                save()
                 
             }else{
                 draws = draw
@@ -28,6 +29,7 @@ class drawingTableViewController: UITableViewController  {
             draws.append(text)
             let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
             draws.append(rr)
+            save()
         }
     }
     
@@ -61,6 +63,7 @@ class drawingTableViewController: UITableViewController  {
         print("draws.count = \(draws.count)")
         if let draws = Draw.load() {
             self.draws = draws
+              print("draws.count2 = \(draws.count)")
         }
         
     }
@@ -73,6 +76,7 @@ class drawingTableViewController: UITableViewController  {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("draws.countTVB = \(draws.count)")
         return draws.count
     }
     

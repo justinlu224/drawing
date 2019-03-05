@@ -20,6 +20,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
     
     @IBOutlet weak var drawingLabel: UILabel!
     @IBOutlet var topView: UIView!
+    @IBOutlet weak var drawingImageView: UIImageView!
+    @IBOutlet weak var resuleNumLabel: UILabel!
+    @IBOutlet weak var resultView: UIView!
+    @IBOutlet weak var resuleLable: UILabel!
     
     
     
@@ -28,6 +32,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
     var sec:Int?
     let drawTVC = drawingTableViewController()
     var draws = [Draw]()
+    var strtX:CGFloat?
+    var strtY:CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,43 +41,95 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
        drawingTableView.dataSource = self
         drawingTableView.delegate = self 
         UIApplication.shared.applicationSupportsShakeToEdit = true
-      //
+      
 //        draw?.questions.append("")
         if let draws = Draw.load() {
             self.draws = draws
         }
-       
+        drawingSV.frame = CGRect(x: drawingImageView.center.x, y: drawingImageView.center.y, width: 0, height: 0)
+        strtX = drawingSV.frame.maxX
+        strtY = drawingSV.frame.maxY
+        print("x.y = \(strtX!),\(strtY!) ")
+        
     }
 
     @IBAction func button(_ sender: Any) {
-        
-        UIView.animateKeyframes(withDuration: 0, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
-            
+       resuleNumLabel.isHidden = true
+        resultView.isHidden = true
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+
             //            self.drawingSV.frame.origin.y -= 200
-            
-            self.drawingSV.frame = CGRect(x: -50, y: -80, width: 0, height: 0)
-            
-            
-            
+
+            self.drawingSV.frame = CGRect(x: self.strtX! , y: self.strtY!, width: 0, height: 0)
+
+
+
         }, completion: nil)
+        
+//        UIView.animate(withDuration: 0.5) {
+//            self.drawingSV.transform = .identity
+//        }
     }
     
     override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         print("开始摇动")
         
-        
+        if !self.resultView.isHidden{
+            return
+        }
         
         
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
-            
+
 //            self.drawingSV.frame.origin.y -= 200
+
+
+//            self.drawingSV.frame = CGRect(x: self.topView.bounds.width/3, y: self.topView.bounds.height/3, width: 0, height: 0)
+            self.drawingSV.frame = CGRect(x: self.topView.frame.width/2 - self.drawingSV.bounds.width/2, y: self.topView.bounds.height/4, width: 0, height: 0)
+
+//            self.drawingSV.transform = CGAffineTransform(translationX: 0, y: 0)
+//            let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
+//            self.drawingLabel.text = String(aa)
+//            print(self.draw?.questions[aa])
+
+
+        }){(completion)in
+            
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+                print(self.draw ?? 1)
+                print("draw = \(String(describing: self.draw?.questions.count))")
+                let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
+                print(aa)
+                self.resuleNumLabel.text = String(aa)
+                self.resuleLable.text = self.draw?.questions[aa]
+                self.resultView.isHidden = false
+                self.resuleNumLabel.isHidden = false
+            })
             
             
-            self.drawingSV.frame = CGRect(x: self.topView.bounds.width/3, y: self.topView.bounds.height/3, width: 0, height: 0)
             
+//            self.drawingLabel.isEnabled = true
+//                    self.drawingLabel.text = String(aa)
+//            self.drawingLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             
-            
-        }, completion: nil)
+        }
+        
+        
+//        let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
+//        self.drawingLabel.text = String(aa)
+//        print(self.draw?.questions[aa])
+//
+//        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeIn) {
+//
+//            self.drawingSV.frame = CGRect(x: self.topView.bounds.width/2, y: 200, width: 0, height: 0)
+//
+//
+//
+//        }
+//        animator.startAnimation()
+////        let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
+////                    self.drawingLabel.text = String(aa)
+////                    print(self.draw?.questions[aa])
         
     }
     /**
@@ -86,15 +144,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
      摇动结束
      
      */
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        print("摇动结束")
-        ///此处设置摇一摇需要实现的功能
-        let aa = Int.random(in: 0..<(draw?.questions.count)!)
-        drawingLabel.text = String(aa)
-        print(draw?.questions[aa])
-        
-
-    }
+//    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+//        print("摇动结束")
+//        ///此处设置摇一摇需要实现的功能
+//        let aa = Int.random(in: 0..<(draw?.questions.count)!)
+//        drawingLabel.text = String(aa)
+//        print(draw?.questions[aa])
+//
+//
+//    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
