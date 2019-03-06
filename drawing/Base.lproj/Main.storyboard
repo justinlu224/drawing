@@ -209,7 +209,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
-                                                        <action selector="editQuzEditingChange:" destination="npA-rW-CPx" eventType="editingChanged" id="i6e-6R-Tfx"/>
+                                                        <action selector="editQuzEditingChange:" destination="npA-rW-CPx" eventType="editingChanged" id="IzC-NI-iFX"/>
+                                                        <outlet property="delegate" destination="npA-rW-CPx" id="yeH-1W-FFi"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -359,9 +360,9 @@
                                                 <segue destination="w1N-7m-3i6" kind="unwind" identifier="cancel" unwindAction="unwindToList:" id="vnm-6J-oxU"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="CDc-Ty-wvf">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pl0-sT-bGn">
                                             <connections>
-                                                <segue destination="w1N-7m-3i6" kind="unwind" identifier="save" unwindAction="unwindToList:" id="XF0-PC-GVF"/>
+                                                <segue destination="w1N-7m-3i6" kind="unwind" identifier="save" unwindAction="unwindToList:" id="cJX-qd-QLv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -393,13 +394,13 @@
                         <outlet property="addQuzTextField" destination="NlK-7F-Ar1" id="hjS-4e-1Qz"/>
                         <outlet property="addTVC" destination="tkJ-zN-DNa" id="THN-UA-RWk"/>
                         <outlet property="addVC" destination="2AL-L3-xls" id="sc0-GQ-3ug"/>
-                        <outlet property="saveBtn" destination="CDc-Ty-wvf" id="VyE-2x-7Af"/>
+                        <outlet property="saveBtn" destination="Pl0-sT-bGn" id="w1I-Z7-2Eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEP-7A-Tfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="w1N-7m-3i6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1109.5999999999999" y="-677.81109445277366"/>
+            <point key="canvasLocation" x="1105" y="-805"/>
         </scene>
         <!--Drawing Table View Controller-->
         <scene sceneID="yHv-En-OmE">
@@ -426,9 +427,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="VC" id="3R1-Qe-aJA"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -438,16 +436,105 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="4mH-vp-bya">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dP6-BM-oiM">
-                            <connections>
-                                <segue destination="ZR9-qT-KeP" kind="presentation" id="GPe-od-aOp"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dP6-BM-oiM"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YH0-VJ-1hE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818" y="38"/>
+            <point key="canvasLocation" x="-30" y="-690"/>
+        </scene>
+        <!--Drawing Collection View Controller-->
+        <scene sceneID="tLJ-xc-aAr">
+            <objects>
+                <collectionViewController id="37h-Gm-nYd" customClass="DrawingCollectionViewController" customModule="drawing" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iv0-mt-5m9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.85254113099999995" green="1" blue="0.6456152409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WuA-Zt-8vo">
+                            <size key="itemSize" width="112" height="112"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="listCell" id="raz-0b-oBa" customClass="DrawingCollectionViewCell" customModule="drawing" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eeO-9D-VSL">
+                                            <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="籤筒.png" translatesAutoresizingMaskIntoConstraints="NO" id="DuI-ws-81n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="112"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="抽籤吧" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-6g-oI1">
+                                                    <rect key="frame" x="0.0" y="94" width="112" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="0.94445853730407325" blue="0.69014273776278945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7J-o7-m6X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="22" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="BUE-kv-U1K"/>
+                                                        <constraint firstAttribute="width" constant="22" id="JJB-gR-IEs"/>
+                                                    </constraints>
+                                                    <state key="normal" title="B" image="刪除.png"/>
+                                                    <connections>
+                                                        <action selector="clickDeleteBtn:" destination="raz-0b-oBa" eventType="touchUpInside" id="1Aw-a9-1Zx"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="DuI-ws-81n" firstAttribute="top" secondItem="eeO-9D-VSL" secondAttribute="top" id="2d3-8q-1vo"/>
+                                                <constraint firstItem="uXG-6g-oI1" firstAttribute="leading" secondItem="eeO-9D-VSL" secondAttribute="leading" id="E57-BO-HRw"/>
+                                                <constraint firstAttribute="trailing" secondItem="DuI-ws-81n" secondAttribute="trailing" id="HQC-0E-DQL"/>
+                                                <constraint firstItem="p7J-o7-m6X" firstAttribute="top" secondItem="eeO-9D-VSL" secondAttribute="top" id="Pmb-G6-Lsu"/>
+                                                <constraint firstAttribute="bottom" secondItem="uXG-6g-oI1" secondAttribute="bottom" id="eBd-HL-mli"/>
+                                                <constraint firstAttribute="bottom" secondItem="DuI-ws-81n" secondAttribute="bottom" id="gQO-yG-Bwl"/>
+                                                <constraint firstItem="p7J-o7-m6X" firstAttribute="leading" secondItem="eeO-9D-VSL" secondAttribute="leading" id="oSx-Y0-l5E"/>
+                                                <constraint firstAttribute="trailing" secondItem="uXG-6g-oI1" secondAttribute="trailing" id="prn-0e-Bud"/>
+                                                <constraint firstItem="DuI-ws-81n" firstAttribute="leading" secondItem="eeO-9D-VSL" secondAttribute="leading" id="xy7-ss-4KX"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="eeO-9D-VSL" firstAttribute="top" secondItem="raz-0b-oBa" secondAttribute="top" id="QaI-71-lii"/>
+                                    <constraint firstAttribute="bottom" secondItem="eeO-9D-VSL" secondAttribute="bottom" id="REj-gj-RlT"/>
+                                    <constraint firstAttribute="trailing" secondItem="eeO-9D-VSL" secondAttribute="trailing" id="WgG-I4-ZYz"/>
+                                    <constraint firstItem="eeO-9D-VSL" firstAttribute="leading" secondItem="raz-0b-oBa" secondAttribute="leading" id="ZBg-RM-idH"/>
+                                </constraints>
+                                <size key="customSize" width="112" height="112"/>
+                                <connections>
+                                    <outlet property="dele" destination="p7J-o7-m6X" id="Aew-aY-RSw"/>
+                                    <outlet property="imageView" destination="DuI-ws-81n" id="26r-b3-SMK"/>
+                                    <outlet property="quzLabel" destination="uXG-6g-oI1" id="grg-Up-r7Q"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="VC" id="2Uu-50-uBL"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="37h-Gm-nYd" id="zNF-wa-jOZ"/>
+                            <outlet property="delegate" destination="37h-Gm-nYd" id="wlr-Ot-ayU"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="qwY-Hi-efC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nwE-bq-qyH">
+                            <connections>
+                                <segue destination="ZR9-qT-KeP" kind="presentation" id="Qyk-LO-LFJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PBR-me-wfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909.60000000000002" y="36.431784107946029"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cBc-53-Q51">
@@ -460,7 +547,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Nkn-uO-TEq" kind="relationship" relationship="rootViewController" id="Kwt-vC-8sr"/>
+                        <segue destination="37h-Gm-nYd" kind="relationship" relationship="rootViewController" id="a7R-Vq-AiZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v7T-p7-x3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -469,6 +556,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="刪除.png" width="262" height="262"/>
         <image name="籤.png" width="117" height="640"/>
         <image name="籤筒.png" width="1040" height="1029"/>
     </resources>

@@ -109,7 +109,8 @@ class AddViewController: UIViewController ,UITableViewDelegate, UITableViewDataS
         let drawTitle = addQuzTextField.text ?? ""
         let drawQuz = cell.addTextField.text ?? ""
         
-        let drawTVC = segue.destination as! drawingTableViewController
+//        let drawTVC = segue.destination as! drawingTableViewController
+//        let drawCV = segue.destination as! DrawingCollectionViewCell
         
         draw.title = addQuzTextField.text ?? ""
         

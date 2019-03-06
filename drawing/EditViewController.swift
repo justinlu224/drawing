@@ -14,6 +14,12 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var editTVC: UITableView!
     @IBOutlet weak var editTitleTextField: UITextField!
     @IBOutlet weak var editSaveBtn: UIBarButtonItem!
+    var textFieldIndex:Int?
+    var finalText:String?
+    
+    
+    
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -50,8 +56,9 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         updateSaveButtonState()
     }
     @IBAction func editQuzEditingChange(_ sender: UITextField) {
+        draw!.questions[textFieldIndex!] = sender.text!
+        print("newdraw = \(textFieldIndex), editQuz = \(sender.text)")
         
-        draw!.questions[sender.tag] = sender.text!
     }
     
     func updateSaveButtonState(){
@@ -69,6 +76,9 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selectrow = \(indexPath)")
+    }
     
     
     // MARK: - Navigation
@@ -85,5 +95,20 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         VC.draw = draw
     }
     
+}
 
+extension EditViewController: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("textFieldDidBeginEditing = \(textField.text)")
+        var cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
+        var table: UITableView = cell.superview as! UITableView
+        let textFieldIndexPath = table.indexPath(for: cell)
+        print("textindex = \(textFieldIndexPath![1]), \(table.indexPathForSelectedRow)")
+        let index = textFieldIndexPath![1]
+        draw?.questions[index] = textField.text!
+        textFieldIndex = textFieldIndexPath![1]
+        print(draw?.questions)
+        
+    }
+    
 }

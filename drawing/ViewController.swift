@@ -15,17 +15,15 @@ struct DrawItem {
 }
 
 class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSource,UITableViewDelegate  {
+
     @IBOutlet weak var drawingSV: UIStackView!
     @IBOutlet weak var drawingTableView: UITableView!
-    
     @IBOutlet weak var drawingLabel: UILabel!
     @IBOutlet var topView: UIView!
     @IBOutlet weak var drawingImageView: UIImageView!
     @IBOutlet weak var resuleNumLabel: UILabel!
     @IBOutlet weak var resultView: UIView!
     @IBOutlet weak var resuleLable: UILabel!
-    
-    
     
     var draw:Draw?
     var index:Int?
@@ -52,6 +50,11 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
         print("x.y = \(strtX!),\(strtY!) ")
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+    }
+
 
     @IBAction func button(_ sender: Any) {
        resuleNumLabel.isHidden = true
@@ -167,12 +170,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
         guard segue.identifier == "save" else {
             return
         }
-        drawingTableView.reloadData()
         
-        draws[sec!] = draw!
+        
+        draws[index!] = draw!
         
         drawTVC.draws = draws
         Draw.sava(draws)
+        drawingTableView.reloadData()
 //        drawTVC.save()
 //        let source = segue.source as! AddViewController
 //        
