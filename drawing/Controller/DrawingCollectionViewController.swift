@@ -20,7 +20,7 @@ class DrawingCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         if let draw = Draw.load() {
             if draw.count == 0 {
-                let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛肉","拉麵","豬肉","美味","沙拉","水果"])
+                let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","拉麵","豬肉","斷食","沙拉","水果"])
                 draws.append(text)
                 let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
                 draws.append(rr)
@@ -31,7 +31,7 @@ class DrawingCollectionViewController: UICollectionViewController {
                 collectionView.reloadData()
             }
         }else{
-            let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛肉","拉麵","豬肉","美味","沙拉","水果"])
+            let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","拉麵","豬肉","斷食","沙拉","水果"])
             draws.append(text)
             let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
             draws.append(rr)

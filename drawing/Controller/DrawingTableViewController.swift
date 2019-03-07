@@ -12,6 +12,9 @@ class DrawingTableViewController: UITableViewController  {
     var draws = [Draw]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "籤筒.png"))
+        
         if let draw = Draw.load() {
             if draw.count == 0 {
                 let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","泡麵","豬肉","斷食","沙拉","水果"])

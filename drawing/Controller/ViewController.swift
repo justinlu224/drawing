@@ -34,6 +34,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (!(UserDefaults.standard.bool(forKey: "first"))) {
+            UserDefaults.standard.set(true, forKey:"first")
+            
+            let alert = UIAlertController(title: "", message: "搖晃手機開始抽籤吧", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+                //                NSLog("The \"OK\" alert occured.")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         // Do any additional setup after loading the view, typically from a nib.
        drawingTableView.dataSource = self
         drawingTableView.delegate = self 
@@ -81,16 +90,28 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
         if !self.resultView.isHidden{
             return
         }
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+        // 我們希望從左邊開始向右晃動，所以 fromValue 設為往左旋轉的角度
+        animation.fromValue = -Double.pi / 10
+        // toValue 則是設置我們結束的角度
+        animation.toValue = Double.pi / 10
+        // 動畫持續時間
+        animation.duration = 0.2
+        // 動畫結束時反向執行
+        animation.autoreverses = true
+        // 動畫重複次數
+        animation.repeatCount = 4
         
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
+        // 將動畫加入我們的汽水按鈕 layer 中。
+        //            sodaButton.layer.add(animation, forKey: "shakeAnimation")
+        self.drawingImageView.layer.add(animation, forKey: "shakeAnimation")
+        
+        UIView.animateKeyframes(withDuration: 2, delay: 1, options: UIView.KeyframeAnimationOptions.beginFromCurrentState, animations: { () -> Void in
 
-//            self.drawingSV.frame.origin.y -= 200
-
-
-//            self.drawingSV.frame = CGRect(x: self.topView.bounds.width/3, y: self.topView.bounds.height/3, width: 0, height: 0)
             self.drawingSV.frame = CGRect(x: self.topView.frame.width/2 - self.drawingSV.bounds.width/2, y: self.topView.bounds.height/4, width: 0, height: 0)
 
+            
 //            self.drawingSV.transform = CGAffineTransform(translationX: 0, y: 0)
 //            let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
 //            self.drawingLabel.text = String(aa)
@@ -98,6 +119,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
 
 
         }){(completion)in
+            
+           
             
             DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
                 print(self.draw ?? 1)
@@ -109,15 +132,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
                 self.resultView.isHidden = false
                 self.resuleNumLabel.isHidden = false
             })
-            
-            
-            
-//            self.drawingLabel.isEnabled = true
-//                    self.drawingLabel.text = String(aa)
-//            self.drawingLabel.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            
+
         }
-        
         
 //        let aa = Int.random(in: 0..<(self.draw?.questions.count)!)
 //        self.drawingLabel.text = String(aa)
