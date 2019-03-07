@@ -125,9 +125,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zn-RY-Z24">
-                                        <rect key="frame" x="237" y="136" width="62" height="30"/>
+                                        <rect key="frame" x="254" y="130" width="33" height="22"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="再來一次"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <state key="normal" title="再來一次">
+                                            <color key="titleColor" red="1" green="0.87347633810000003" blue="0.91351866979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M6D-Fu-8E3"/>
                                         </connections>
@@ -135,10 +138,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.85254113099999995" green="1" blue="0.6456152409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="6Zn-RY-Z24" secondAttribute="bottom" id="HN6-ZE-x1F"/>
+                                    <constraint firstAttribute="trailing" secondItem="6Zn-RY-Z24" secondAttribute="trailing" constant="20" id="YYt-d2-Zrp"/>
                                     <constraint firstItem="tya-Bs-FK2" firstAttribute="centerX" secondItem="AHb-Qy-mGn" secondAttribute="centerX" id="cQX-IV-7re"/>
                                     <constraint firstItem="tya-Bs-FK2" firstAttribute="centerY" secondItem="AHb-Qy-mGn" secondAttribute="centerY" id="e5j-Tb-2Ch"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Zn-RY-Z24" secondAttribute="trailing" constant="8" id="rWm-8c-PiE"/>
+                                    <constraint firstAttribute="bottom" secondItem="6Zn-RY-Z24" secondAttribute="bottom" constant="14" id="lk5-W1-cbt"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -405,7 +408,7 @@
         <!--Drawing Table View Controller-->
         <scene sceneID="yHv-En-OmE">
             <objects>
-                <tableViewController id="Nkn-uO-TEq" customClass="drawingTableViewController" customModule="drawing" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Nkn-uO-TEq" customClass="DrawingTableViewController" customModule="drawing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vE8-ky-7Eg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +453,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Iv0-mt-5m9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.85254113099999995" green="1" blue="0.6456152409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.87347633813274017" blue="0.91351866980931695" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WuA-Zt-8vo">
                             <size key="itemSize" width="112" height="112"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -477,7 +480,7 @@
                                                     <color key="textColor" red="1" green="0.94445853730407325" blue="0.69014273776278945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7J-o7-m6X">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7J-o7-m6X">
                                                     <rect key="frame" x="0.0" y="0.0" width="22" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="BUE-kv-U1K"/>
@@ -512,7 +515,7 @@
                                 </constraints>
                                 <size key="customSize" width="112" height="112"/>
                                 <connections>
-                                    <outlet property="dele" destination="p7J-o7-m6X" id="Aew-aY-RSw"/>
+                                    <outlet property="deleteBtn" destination="p7J-o7-m6X" id="Aew-aY-RSw"/>
                                     <outlet property="imageView" destination="DuI-ws-81n" id="26r-b3-SMK"/>
                                     <outlet property="quzLabel" destination="uXG-6g-oI1" id="grg-Up-r7Q"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="VC" id="2Uu-50-uBL"/>
@@ -531,6 +534,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addBarButtonItem" destination="nwE-bq-qyH" id="PDE-13-5gE"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBR-me-wfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

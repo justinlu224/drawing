@@ -15,7 +15,6 @@ struct Draw: Codable {
     
     private static var fileURL : URL {
         var documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        //存在emojis.plist的地方
         documentDir.appendPathComponent("draws")
         documentDir.appendPathExtension("plist")
         print(documentDir.absoluteString)

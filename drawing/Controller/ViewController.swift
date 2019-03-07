@@ -27,8 +27,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
     
     var draw:Draw?
     var index:Int?
-    var sec:Int?
-    let drawTVC = drawingTableViewController()
+    let drawTVC = DrawingTableViewController()
     var draws = [Draw]()
     var strtX:CGFloat?
     var strtY:CGFloat?
@@ -39,6 +38,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate ,UITableViewDataSo
        drawingTableView.dataSource = self
         drawingTableView.delegate = self 
         UIApplication.shared.applicationSupportsShakeToEdit = true
+        resultView.layer.cornerRadius = resultView.bounds.width / 8.0
+        
       
 //        draw?.questions.append("")
         if let draws = Draw.load() {

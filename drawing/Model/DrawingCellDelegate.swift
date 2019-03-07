@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol DrawingCellDelegate {
-    func editText (_ draw : Draw)
+protocol DrawingCellDelegate:class {
+    func delete(cell:DrawingCollectionViewCell)
 }

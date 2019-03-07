@@ -11,14 +11,17 @@ import UIKit
 class DrawingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var quzLabel: UILabel!
-    @IBOutlet weak var dele: UIButton!
-
+    @IBOutlet weak var deleteBtn: UIButton!
+    var delegate: DrawingCellDelegate?
+    
+    var isEditing:Bool = false{
+        didSet{
+            deleteBtn.isHidden = !isEditing
+        }
+    }
+    
     @IBAction func clickDeleteBtn(_ sender: UIButton) {
-        print("AAAAAAAAAAAAAA")
-        var cell:UICollectionViewCell = imageView.superview?.superview as! UICollectionViewCell
-        var cv = cell.superview as! UICollectionView
-        var index = cv.indexPath(for: cell)
-        print("index = \(index!)")
+        delegate?.delete(cell: self)
     }
     
 }

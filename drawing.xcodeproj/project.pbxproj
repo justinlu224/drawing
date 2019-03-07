@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18380621218B599900C8109F /* drawingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18380620218B599900C8109F /* drawingTableViewController.swift */; };
+		18380621218B599900C8109F /* DrawingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18380620218B599900C8109F /* DrawingTableViewController.swift */; };
 		1881342B222E28CB00B1CC56 /* 籤筒.png in Resources */ = {isa = PBXBuildFile; fileRef = 1881342A222E28CB00B1CC56 /* 籤筒.png */; };
 		1881342D222E2B2300B1CC56 /* 籤.png in Resources */ = {isa = PBXBuildFile; fileRef = 1881342C222E2B2300B1CC56 /* 籤.png */; };
-		1881342F222F65AC00B1CC56 /* EditDrawingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1881342E222F65AC00B1CC56 /* EditDrawingDelegate.swift */; };
 		18813431222F7BCB00B1CC56 /* DrawingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813430222F7BCB00B1CC56 /* DrawingCollectionViewController.swift */; };
 		18813433222F7BE500B1CC56 /* DrawingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813432222F7BE500B1CC56 /* DrawingCollectionViewCell.swift */; };
 		18813436222F982B00B1CC56 /* 刪除.png in Resources */ = {isa = PBXBuildFile; fileRef = 18813435222F982B00B1CC56 /* 刪除.png */; };
+		18813438223018C700B1CC56 /* DrawingCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18813437223018C700B1CC56 /* DrawingCellDelegate.swift */; };
+		1881343D223025F200B1CC56 /* 籤筒2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1881343C223025F200B1CC56 /* 籤筒2.png */; };
 		18B1EFD12199648E00EFC791 /* question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1EFD02199648E00EFC791 /* question.swift */; };
 		18B1EFD32199CA5D00EFC791 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1EFD22199CA5D00EFC791 /* AddViewController.swift */; };
 		18B1EFD52199CD2D00EFC791 /* AddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B1EFD42199CD2D00EFC791 /* AddTableViewCell.swift */; };
@@ -27,13 +28,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		18380620218B599900C8109F /* drawingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = drawingTableViewController.swift; sourceTree = "<group>"; };
+		18380620218B599900C8109F /* DrawingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingTableViewController.swift; sourceTree = "<group>"; };
 		1881342A222E28CB00B1CC56 /* 籤筒.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "籤筒.png"; sourceTree = "<group>"; };
 		1881342C222E2B2300B1CC56 /* 籤.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "籤.png"; sourceTree = "<group>"; };
-		1881342E222F65AC00B1CC56 /* EditDrawingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDrawingDelegate.swift; sourceTree = "<group>"; };
 		18813430222F7BCB00B1CC56 /* DrawingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCollectionViewController.swift; sourceTree = "<group>"; };
 		18813432222F7BE500B1CC56 /* DrawingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCollectionViewCell.swift; sourceTree = "<group>"; };
 		18813435222F982B00B1CC56 /* 刪除.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "刪除.png"; sourceTree = "<group>"; };
+		18813437223018C700B1CC56 /* DrawingCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingCellDelegate.swift; sourceTree = "<group>"; };
+		1881343C223025F200B1CC56 /* 籤筒2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "籤筒2.png"; path = "../../../../../DrawingUI/籤筒2.png"; sourceTree = "<group>"; };
 		18B1EFD02199648E00EFC791 /* question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = question.swift; sourceTree = "<group>"; };
 		18B1EFD22199CA5D00EFC791 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		18B1EFD42199CD2D00EFC791 /* AddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTableViewCell.swift; sourceTree = "<group>"; };
@@ -59,6 +61,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18813439223019A000B1CC56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18B1EFD02199648E00EFC791 /* question.swift */,
+				18813437223018C700B1CC56 /* DrawingCellDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1881343A223019AB00B1CC56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1881342C222E2B2300B1CC56 /* 籤.png */,
+				1881342A222E28CB00B1CC56 /* 籤筒.png */,
+				1881343C223025F200B1CC56 /* 籤筒2.png */,
+				18813435222F982B00B1CC56 /* 刪除.png */,
+				18B1EFD42199CD2D00EFC791 /* AddTableViewCell.swift */,
+				18BCCB8921A12B1A00213814 /* EditTableViewCell.swift */,
+				18813432222F7BE500B1CC56 /* DrawingCollectionViewCell.swift */,
+				18F0B8AE2189E9CD0093AD93 /* Main.storyboard */,
+				18F0B8B32189E9D20093AD93 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1881343B223019B300B1CC56 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18BCCB8721A1294A00213814 /* EditViewController.swift */,
+				18B1EFD22199CA5D00EFC791 /* AddViewController.swift */,
+				18813430222F7BCB00B1CC56 /* DrawingCollectionViewController.swift */,
+				18380620218B599900C8109F /* DrawingTableViewController.swift */,
+				18F0B8AC2189E9CD0093AD93 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		18F0B89E2189E9CD0093AD93 = {
 			isa = PBXGroup;
 			children = (
@@ -78,24 +117,12 @@
 		18F0B8A92189E9CD0093AD93 /* drawing */ = {
 			isa = PBXGroup;
 			children = (
+				1881343B223019B300B1CC56 /* Controller */,
+				1881343A223019AB00B1CC56 /* View */,
+				18813439223019A000B1CC56 /* Model */,
 				18F0B8AA2189E9CD0093AD93 /* AppDelegate.swift */,
-				1881342A222E28CB00B1CC56 /* 籤筒.png */,
-				1881342C222E2B2300B1CC56 /* 籤.png */,
-				18813435222F982B00B1CC56 /* 刪除.png */,
-				18F0B8AC2189E9CD0093AD93 /* ViewController.swift */,
-				18380620218B599900C8109F /* drawingTableViewController.swift */,
-				18B1EFD02199648E00EFC791 /* question.swift */,
-				18B1EFD22199CA5D00EFC791 /* AddViewController.swift */,
-				18B1EFD42199CD2D00EFC791 /* AddTableViewCell.swift */,
-				18BCCB8721A1294A00213814 /* EditViewController.swift */,
-				18BCCB8921A12B1A00213814 /* EditTableViewCell.swift */,
-				18F0B8AE2189E9CD0093AD93 /* Main.storyboard */,
 				18F0B8B12189E9D20093AD93 /* Assets.xcassets */,
-				18F0B8B32189E9D20093AD93 /* LaunchScreen.storyboard */,
 				18F0B8B62189E9D20093AD93 /* Info.plist */,
-				1881342E222F65AC00B1CC56 /* EditDrawingDelegate.swift */,
-				18813430222F7BCB00B1CC56 /* DrawingCollectionViewController.swift */,
-				18813432222F7BE500B1CC56 /* DrawingCollectionViewCell.swift */,
 			);
 			path = drawing;
 			sourceTree = "<group>";
@@ -162,6 +189,7 @@
 				18F0B8B52189E9D20093AD93 /* LaunchScreen.storyboard in Resources */,
 				18F0B8B22189E9D20093AD93 /* Assets.xcassets in Resources */,
 				18813436222F982B00B1CC56 /* 刪除.png in Resources */,
+				1881343D223025F200B1CC56 /* 籤筒2.png in Resources */,
 				18F0B8B02189E9CD0093AD93 /* Main.storyboard in Resources */,
 				1881342B222E28CB00B1CC56 /* 籤筒.png in Resources */,
 			);
@@ -174,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18813438223018C700B1CC56 /* DrawingCellDelegate.swift in Sources */,
 				18B1EFD32199CA5D00EFC791 /* AddViewController.swift in Sources */,
 				18813431222F7BCB00B1CC56 /* DrawingCollectionViewController.swift in Sources */,
 				18F0B8AD2189E9CD0093AD93 /* ViewController.swift in Sources */,
@@ -182,8 +211,7 @@
 				18BCCB8A21A12B1A00213814 /* EditTableViewCell.swift in Sources */,
 				18B1EFD52199CD2D00EFC791 /* AddTableViewCell.swift in Sources */,
 				18F0B8AB2189E9CD0093AD93 /* AppDelegate.swift in Sources */,
-				1881342F222F65AC00B1CC56 /* EditDrawingDelegate.swift in Sources */,
-				18380621218B599900C8109F /* drawingTableViewController.swift in Sources */,
+				18380621218B599900C8109F /* DrawingTableViewController.swift in Sources */,
 				18BCCB8821A1294A00213814 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

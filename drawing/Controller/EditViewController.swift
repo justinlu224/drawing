@@ -17,10 +17,6 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     var textFieldIndex:Int?
     var finalText:String?
     
-    
-    
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -29,7 +25,7 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = editTVC.dequeueReusableCell(withIdentifier: "editCell", for: indexPath) as! EditTableViewCell
+        let cell = editTVC.dequeueReusableCell(withIdentifier: "editCell", for: indexPath) as! EditTableViewCell
         editTitleTextField.text = draw?.title
         cell.editTextField.text = draw?.questions[indexPath.row]
         
@@ -37,10 +33,10 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -57,7 +53,7 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     @IBAction func editQuzEditingChange(_ sender: UITextField) {
         draw!.questions[textFieldIndex!] = sender.text!
-        print("newdraw = \(textFieldIndex), editQuz = \(sender.text)")
+        //        print("newdraw = \(textFieldIndex), editQuz = \(sender.text)")
         
     }
     
@@ -77,12 +73,12 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("selectrow = \(indexPath)")
+        //        print("selectrow = \(indexPath)")
     }
     
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -99,15 +95,15 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 
 extension EditViewController: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("textFieldDidBeginEditing = \(textField.text)")
-        var cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
-        var table: UITableView = cell.superview as! UITableView
+        //        print("textFieldDidBeginEditing = \(textField.text)")
+        let cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
+        let table: UITableView = cell.superview as! UITableView
         let textFieldIndexPath = table.indexPath(for: cell)
-        print("textindex = \(textFieldIndexPath![1]), \(table.indexPathForSelectedRow)")
+        //        print("textindex = \(textFieldIndexPath![1]), \(table.indexPathForSelectedRow)")
         let index = textFieldIndexPath![1]
         draw?.questions[index] = textField.text!
         textFieldIndex = textFieldIndexPath![1]
-        print(draw?.questions)
+        //        print(draw?.questions)
         
     }
     
