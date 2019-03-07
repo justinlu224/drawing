@@ -32,14 +32,12 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         return cell
         
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        editTitleTextField.isEnabled = false
+        editTitleTextField.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
-    
     @IBAction func addEditCell(_ sender: UIButton) {
         let indexPath = IndexPath(row: draw!.questions.count, section: 0)
         //將emoji 插入陣列
@@ -96,7 +94,9 @@ class EditViewController: UIViewController,UITableViewDelegate, UITableViewDataS
 extension EditViewController: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         //        print("textFieldDidBeginEditing = \(textField.text)")
-        let cell: UITableViewCell = textField.superview!.superview as! UITableViewCell
+        guard let cell: UITableViewCell = textField.superview!.superview as? UITableViewCell else{
+            return
+        }
         let table: UITableView = cell.superview as! UITableView
         let textFieldIndexPath = table.indexPath(for: cell)
         //        print("textindex = \(textFieldIndexPath![1]), \(table.indexPathForSelectedRow)")
@@ -105,6 +105,11 @@ extension EditViewController: UITextFieldDelegate{
         textFieldIndex = textFieldIndexPath![1]
         //        print(draw?.questions)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

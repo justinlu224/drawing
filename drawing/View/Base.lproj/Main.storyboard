@@ -244,6 +244,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="editTitleCditingChange:" destination="npA-rW-CPx" eventType="editingChanged" id="Vjl-Mj-yMf"/>
+                                    <outlet property="delegate" destination="npA-rW-CPx" id="nNp-f5-D4D"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zm-2F-jZR">
@@ -326,6 +327,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="addTextEditingChange:" destination="ZR9-qT-KeP" eventType="editingChanged" id="rwn-hB-mho"/>
+                                                        <outlet property="delegate" destination="ZR9-qT-KeP" id="Xw7-zq-7RD"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -354,6 +356,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="addTextEditingChange:" destination="ZR9-qT-KeP" eventType="editingDidEnd" id="5sx-CE-vjP"/>
+                                    <outlet property="delegate" destination="ZR9-qT-KeP" id="QtC-H4-gXa"/>
                                 </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Vk-vi-p24">
