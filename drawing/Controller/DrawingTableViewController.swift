@@ -10,6 +10,8 @@ import UIKit
 
 class DrawingTableViewController: UITableViewController  {
     var draws = [Draw]()
+    let 今天吃什麼 = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","泡麵","豬肉","斷食","沙拉","水果"])
+    let 今天去哪裡 = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,28 +19,23 @@ class DrawingTableViewController: UITableViewController  {
         
         if let draw = Draw.load() {
             if draw.count == 0 {
-                let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","泡麵","豬肉","斷食","沙拉","水果"])
-                draws.append(text)
-                let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
-                draws.append(rr)
+                draws.append(今天吃什麼)
+                draws.append(今天去哪裡)
                 save()
-                
             }else{
                 draws = draw
                 tableView.reloadData()
             }
         }else{
-            let text = Draw.init(title: "今天吃什麼", questions: ["漢堡","牛排","泡麵","豬肉","斷食","沙拉","水果"])
-            draws.append(text)
-            let rr = Draw.init(title: "今天去哪裡", questions: ["上班","回家","看電影","逛街","夜店"])
-            draws.append(rr)
+            draws.append(今天吃什麼)
+            draws.append(今天去哪裡)
             save()
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         save()
-       
+        
     }
     
     @IBAction func unwindToList(_ segue: UIStoryboardSegue){
@@ -66,7 +63,7 @@ class DrawingTableViewController: UITableViewController  {
         print("draws.count = \(draws.count)")
         if let draws = Draw.load() {
             self.draws = draws
-              print("draws.count2 = \(draws.count)")
+            print("draws.count2 = \(draws.count)")
         }
         
     }
